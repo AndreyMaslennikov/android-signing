@@ -17,7 +17,7 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file('file.keystore')
+            // storeFile file('file.keystore')
             storePassword '123456'
             keyAlias 'private_key'
             keyPassword '234567'
