@@ -29,20 +29,24 @@ android {
         }
     }
     buildTypes {
-        debug {
+        noSigningConfig {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        emptySigningConfig {
             signingConfig
         }
-        release {
+        withStoreFile {
             signingConfig signingConfigs.debug
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        stage {
+        invalidSigningConfig {
             signingConfig signingConfigs.stage
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        test {
+        noStoreFile {
             signingConfig signingConfigs.test
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
