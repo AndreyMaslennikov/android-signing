@@ -22,6 +22,11 @@ android {
             keyAlias 'private_key'
             keyPassword '234567'
         }
+        test {
+            storePassword '123456'
+            keyAlias 'private_key'
+            keyPassword '234567'
+        }
     }
     buildTypes {
         debug {
@@ -29,6 +34,16 @@ android {
         }
         release {
             signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        stage {
+            signingConfig signingConfigs.stage
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        test {
+            signingConfig signingConfigs.test
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
